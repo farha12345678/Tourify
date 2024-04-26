@@ -75,8 +75,10 @@ const Navbar = () => {
   
     
  </>
-    :
-    <Link to='/login'><button onClick={logOut} className="font-bold text-xl ml-4 text-blue-500">Log In</button></Link>
+    : <>
+    <Link to='/login'><button className="font-bold text-xl ml-4 text-blue-500">Log In</button></Link>
+    <Link to='/register'><button className="font-bold text-xl ml-4 text-blue-500">Register</button></Link>
+    </>
    }
       </div>
     </div>

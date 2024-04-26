@@ -5,6 +5,8 @@ import AddSpot from "../Components/Pages/AddSpot";
 import MyList from "../Components/Pages/MyList";
 import LogIn from "../Components/Pages/LogIn";
 import Home from "../Components/Home/Home";
+import Register from "../Components/Pages/Register";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -17,19 +19,23 @@ const router = createBrowserRouter([
       },
       {
         path: '/all',
-        element: <AllSpot></AllSpot>
+        element: <PrivateRoute><AllSpot></AllSpot></PrivateRoute>
       },
       {
         path: '/add',
-        element: <AddSpot></AddSpot>
+        element: <PrivateRoute><AddSpot></AddSpot></PrivateRoute>
       },
       {
         path: '/my',
-        element: <MyList></MyList>
+        element: <PrivateRoute><MyList></MyList></PrivateRoute>
       },
       {
         path: '/logIn',
         element: <LogIn></LogIn>
+      },
+      {
+        path: '/register',
+        element:<Register></Register>
       }
     ]
   },
