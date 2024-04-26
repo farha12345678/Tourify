@@ -7,10 +7,10 @@ const Navbar = () => {
   const {user , logOut} = useContext(AuthContext)
 
   const links = <>
-    <NavLink className={({ isActive }) => isActive ? ' text-blue-500 font-xl font-bold' : 'font-xl  font-bold'} to='/'><li>Home</li></NavLink>
-    <NavLink className={({isActive}) => isActive? ' ml-3 text-blue-500  font-xl font-bold': 'font-xl ml-3 font-bold'} to='/all'><li>All Tourists Spot</li></NavLink>
-    <NavLink className={({isActive}) => isActive? 'text-blue-500 ml-3 font-xl font-bold': 'font-xl ml-3 font-bold'} to='/add'><li>Add Tourists Spot</li></NavLink>
-    <NavLink className={({isActive}) => isActive? 'text-blue-500 font-xl ml-3 font-bold': 'font-xl ml-3 font-bold'} to='/my'><li>My List</li></NavLink>
+    <NavLink className={({ isActive }) => isActive ? 'border-x-2 text-blue-500 text-xl ' : 'text-xl border-x-2 '} to='/'><li>Home</li></NavLink>
+    <NavLink className={({isActive}) => isActive? 'border-x-2  text-blue-500  text-xl ': 'text-xl border-x-2 '} to='/all'><li>All Tourists Spot</li></NavLink>
+    <NavLink className={({isActive}) => isActive? 'text-blue-500 text-xl border-x-2': 'text-xl  border-x-2 '} to='/add'><li>Add Tourists Spot</li></NavLink>
+    <NavLink className={({isActive}) => isActive? 'text-blue-500 text-xl border-x-2 ': 'text-xl  border-x-2 '} to='/my'><li>My List</li></NavLink>
     <NavLink><li></li></NavLink>
 
 
@@ -22,7 +22,7 @@ const Navbar = () => {
 
   return (
   <div>
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-blue-100">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -34,11 +34,11 @@ const Navbar = () => {
         </div>
         <div className="flex">
           <img className="text-sm w-12" src="/src/assets/earth.png" alt="" />
-          <a className="text-3xl font-extrabold">Tourify</a>
+          <a className="text-4xl font-extrabold">Tourify</a>
         </div>
 
-        <div className="navbar hidden lg:flex ml-14">
-          <ul className="menu menu-horizontal px-1">
+        <div className="navbar hidden lg:flex mt-2 ml-10">
+          <ul className="menu menu-horizontal font-normal gap-x-2">
             {links}
           </ul>
         </div>
