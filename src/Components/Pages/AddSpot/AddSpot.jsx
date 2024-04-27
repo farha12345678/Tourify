@@ -1,4 +1,4 @@
-
+import Swal from 'sweetalert2'
 
 const AddSpot = () => {
 
@@ -16,8 +16,24 @@ const AddSpot = () => {
         const visitor = form.visitor.value;
         const email = form.email.value;
         const name = form.name.value;
-const addSpot = {photo,spot,country,location,description,cost,season,time,visitor,email,name}
-console.log(addSpot);
+        const addSpot = { photo, spot, country, location, description, cost, season, time, visitor, email, name }
+        console.log(addSpot);
+        // send data to the server
+        fetch('http://localhost:5000/add',{
+            method:'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(addSpot)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            if(data.insertedId){
+                Swal.fire("Spot Added Successfully!");
+            }
+            
+        })
 
     }
 
