@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { FaFacebook, FaGithub, FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
+import Swal from "sweetalert2";
 
 
 const LogIn = () => {
@@ -41,7 +42,7 @@ const LogIn = () => {
             })
             .catch(error => {
                 console.log(error);
-
+                Swal.fire(error.message);
             })
 
     }

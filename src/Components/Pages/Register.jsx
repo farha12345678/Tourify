@@ -2,20 +2,21 @@ import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { FaEyeSlash, FaRegEye } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 
 
 
 const Register = () => {
 
-   
+
     const [showPassword, setShowPassword] = useState(false)
 
     const { createUser } = useContext(AuthContext)
 
     const handleRegister = e => {
         e.preventDefault();
-       
+
         const form = new FormData(e.currentTarget)
         const email = form.get('email')
         const password = form.get('password')
@@ -23,30 +24,31 @@ const Register = () => {
         const photo = form.get('photo')
 
         // // validition
-        // if (password.length < 6) {
-        //     toast.error('Password should be at least 6 characters or longer');
-        //     return;
-        // }
-        // else if (!/[A-Z]/.test(password)) {
-        //     toast.error('Your password should have at least one uppercase character');
-        //     return;
-        // }
-        // else if (!/[a-z]/.test(password)) {
-        //     toast.erro('Your password should have at least one lowercase character');
-        //     return;
-        // }
+        if (password.length < 6) {
+            Swal.fire('Your password should have at least six character');
+
+            return;
+        }
+        else if (!/[A-Z]/.test(password)) {
+            Swal.fire('Your password should have at least one uppercase character');
+            return;
+        }
+        else if (!/[a-z]/.test(password)) {
+            Swal.fire('Your password should have at least one lowercase character');
+            return;
+        }
 
 
         console.log(email, password, name, photo);
         createUser(email, password, name, photo)
             .then(result => {
                 console.log(result.user);
-                // toast.success('User Created Successfully')
+                Swal.fire('User Created Successfully')
                 e.target.reset()
             })
             .catch(error => {
-                console.log(error);
-                // toast.error(error.message)
+                
+                Swal.fire(error.message)
             })
 
     }
@@ -110,7 +112,7 @@ const Register = () => {
 
                     </div>
                     <p className="text-center">Already have an account?<Link className="text-blue-500" to='/login'>LogIn</Link></p>
-                   
+
                 </form>
             </div>
         </div>

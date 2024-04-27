@@ -1,11 +1,11 @@
+
 import PropTypes from 'prop-types';
 
 import { Link } from 'react-router-dom';
 
-const SpotCard = ({ spots }) => {
-    const { _id, spot, photo, description } = spots;
-     
 
+const AllSpotCard = ({spots}) => {
+    const { _id, spot, photo, description } = spots;
     return (
         <div>
             <div className="card card-side lg:w-[650px] w-96 bg-base-100 shadow-xl">
@@ -25,9 +25,9 @@ const SpotCard = ({ spots }) => {
         </div>
     );
 };
-
-SpotCard.propTypes = {
+AllSpotCard.propTypes = {
     spots: PropTypes.object
 }
 
-export default SpotCard;
+
+export default AllSpotCard;

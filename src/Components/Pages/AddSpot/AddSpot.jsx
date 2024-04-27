@@ -31,6 +31,7 @@ const AddSpot = () => {
             console.log(data);
             if(data.insertedId){
                 Swal.fire("Spot Added Successfully!");
+                e.target.reset()
             }
             
         })

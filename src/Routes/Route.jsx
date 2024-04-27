@@ -1,6 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
 import Root from "../Layout/Root";
-import AllSpot from "../Components/Pages/AllSpot";
 
 import MyList from "../Components/Pages/MyList";
 import LogIn from "../Components/Pages/LogIn";
@@ -10,6 +9,7 @@ import PrivateRoute from "./PrivateRoute";
 import AddSpot from "../Components/Pages/AddSpot/AddSpot";
 import ViewDetails from "../Components/Pages/AddSpot/ViewDetails";
 import Update from "../Components/Pages/Update/Update";
+import AllSpot from "../Components/Pages/AllSpot/AllSpot";
 
 const router = createBrowserRouter([
   {
@@ -23,7 +23,8 @@ const router = createBrowserRouter([
       },
       {
         path: '/all',
-        element: <PrivateRoute><AllSpot></AllSpot></PrivateRoute>
+        element: <PrivateRoute><AllSpot></AllSpot></PrivateRoute>,
+        loader: ()=> fetch('http://localhost:5000/add') 
       },
       {
         path: '/add',
