@@ -19,52 +19,62 @@ const AddSpot = () => {
         const addSpot = { photo, spot, country, location, description, cost, season, time, visitor, email, name }
         console.log(addSpot);
         // send data to the server
-        fetch('http://localhost:5000/add',{
-            method:'POST',
+        fetch('http://localhost:5000/add', {
+            method: 'POST',
             headers: {
                 'content-type': 'application/json'
             },
             body: JSON.stringify(addSpot)
         })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-            if(data.insertedId){
-                Swal.fire("Spot Added Successfully!");
-                e.target.reset()
-            }
-            
-        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.insertedId) {
+                    Swal.fire("Spot Added Successfully!");
+                    e.target.reset()
+                }
+
+            })
 
     }
+    const countries = [
+        "Bangladesh",
+        "Thailand",
+        "Indonesia",
+        "Cambodia",
+        "Vietnam",
+        "Malaysia"
+
+
+    ]
     // const handleFilter = filter => {
 
     //     if (filter === 'All') {
-            
+
     //     } else if (filter === 'Bangladesh') {
     //         const spotBd = spotLoad.filter(spot => spot.country === 'Bangladesh')
-            
+
     //     }
     //     else if (filter === 'Thailand') {
     //         const spotBd = spotLoad.filter(spot => spot.country === 'Thailand')
-            
+
     //     }
     //     else if (filter === 'Malaysia') {
     //         const spotBd = spotLoad.filter(spot => spot.country === 'Malaysia')
-            
+
     //     }
     //     else if (filter === 'Vietnam') {
     //         const spotBd = spotLoad.filter(spot => spot.country === 'Vietnam')
-            
+
     //     }else if (filter === 'Cambodia') {
     //         const spotBd = spotLoad.filter(spot => spot.country === 'Cambodia')
-            
+
     //     }
     //     else if (filter === 'Indonesia') {
     //         const spotBd = spotLoad.filter(spot => spot.country === 'Indonesia')
-            
+
     //     }
-        
+
     // }
 
 
@@ -84,29 +94,26 @@ const AddSpot = () => {
                     </label>
                     <input type="text" name="spot" placeholder="Spot Name" className="input input-bordered" required />
                 </div>
-                 <div className="form-control">
+                {/* <div className="form-control">
                     <label className="label">
                         <span className="label-text text-lg font-medium">Country Name</span>
                     </label>
                     <input type="text" name="country" placeholder="Country Name" className="input input-bordered" required />
-                </div> 
-                
-                {/* <div className="dropdown">
+                </div> */}
+
+                <div className="dropdown form-control flex-grow">
                 <label className="label">
                         <span className="label-text text-lg font-medium">Country Name</span>
                     </label>
                 <input type="text" name="country" placeholder="Country Name" className="input input-bordered" required />
                     <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
-                        <li ><a>All</a></li>
-                        <li ><a>Bangladesh</a></li>
-                        <li><a>Thailand</a></li>
-                        <li><a>Vietnam</a></li>
-                        <li ><a>Indonesia</a></li>
-                        <li ><a>Cambodia</a></li>
+                        <li>
+                            {countries}
+                        </li>
                     </ul>
                 
 
-            </div> */}
+            </div>
                 <div className="form-control">
                     <label className="label">
                         <span className="label-text text-lg font-medium">Location</span>

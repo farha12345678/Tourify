@@ -8,11 +8,12 @@ import Register from "../Components/Pages/Register";
 import PrivateRoute from "./PrivateRoute";
 import AddSpot from "../Components/Pages/AddSpot/AddSpot";
 import ViewDetails from "../Components/Pages/AddSpot/ViewDetails";
-import Update from "../Components/Pages/Update/Update";
+
 import AllSpot from "../Components/Pages/AllSpot/AllSpot";
 import AddCountry from "../Components/Pages/Country/AddCountry";
 import ErrorPage from "../Components/Pages/ErrorPage";
 import Spot from "../Components/Pages/Country/Spot";
+import Update from "../Components/Pages/Update/Update";
 
 
 
@@ -58,6 +59,7 @@ const router = createBrowserRouter([
       {
         path: '/update/:id',
         element:<Update></Update>,
+        loader:({params}) => fetch(`http://localhost:5000/add/${params.id}`)
         
       },
       {
