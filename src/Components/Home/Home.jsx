@@ -1,6 +1,7 @@
 import Banner from "../Banner/Banner";
 
 import AddSpotSection from "../Pages/AddSpot/AddSpotSection";
+import AddCountry from "../Pages/Country/AddCountry";
 
 
 const Home = () => {
@@ -8,6 +9,7 @@ const Home = () => {
         <div>
             <Banner></Banner>
             <AddSpotSection></AddSpotSection>
+           <AddCountry></AddCountry>
         </div>
     );
 };
