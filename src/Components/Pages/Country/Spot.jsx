@@ -21,12 +21,10 @@ const Spot = () => {
             <div>
             <h1>Spot : {countries.length}</h1>
             </div>
-            <div>
-                {/* {
-                    countries.map(country=> <h1 key={country.spot}>{countries.name}</h1>)
-                } */}
+            <div className="grid gap-y-10 lg:mx-20">
+               
                 {
-                     countries?.map(data =><Selected key={data._id} country={data}></Selected>)
+                     countries?.map(country =><Selected key={country._id} country={country}></Selected>)
                 }
             </div>
         </div>
