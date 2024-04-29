@@ -1,3 +1,4 @@
+import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2'
 
 const AddSpot = () => {
@@ -37,16 +38,16 @@ const AddSpot = () => {
             })
 
     }
-    const countries = [
-        "Bangladesh",
-        "Thailand",
-        "Indonesia",
-        "Cambodia",
-        "Vietnam",
-        "Malaysia"
+    // const countries = [
+    //     "Bangladesh",
+    //     "Thailand",
+    //     "Indonesia",
+    //     "Cambodia",
+    //     "Vietnam",
+    //     "Malaysia"
 
 
-    ]
+    // ]
     // const handleFilter = filter => {
 
     //     if (filter === 'All') {
@@ -76,6 +77,7 @@ const AddSpot = () => {
     //     }
 
     // }
+    const {register} = useForm()
 
 
 
@@ -101,7 +103,7 @@ const AddSpot = () => {
                     <input type="text" name="country" placeholder="Country Name" className="input input-bordered" required />
                 </div> */}
 
-                <div className="dropdown form-control flex-grow">
+                {/* <div className="dropdown form-control flex-grow">
                 <label className="label">
                         <span className="label-text text-lg font-medium">Country Name</span>
                     </label>
@@ -113,7 +115,22 @@ const AddSpot = () => {
                     </ul>
                 
 
-            </div>
+            </div> */}
+            <div className="form-control">
+                    <label className="label">
+                        <span className="label-text text-lg font-medium">Country Name</span>
+                    </label>
+                    <select className="input input-bordered w-full"  {...register("category", { required: true })}>
+                    <option value="">Select...</option>
+                    <option value="Bangladesh">Bangladesh</option>
+                    <option value="Thailand">Thailand</option>
+                    <option value="Malaysia">Malaysia</option>
+                    <option value="Indonesia">Indonesia</option>
+                    <option value="Vietnam">Vietnam</option>
+                    <option value="Cambodia">Cambodia</option>
+                    
+                </select>
+                </div>
                 <div className="form-control">
                     <label className="label">
                         <span className="label-text text-lg font-medium">Location</span>

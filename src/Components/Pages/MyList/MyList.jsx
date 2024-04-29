@@ -25,7 +25,7 @@ const MyList = () => {
     }, [user])
     return (
         <div>
-            <div>
+            <div className="text-center font-bold text-3xl my-10">
                 <h1>My List</h1>
             </div>
             {

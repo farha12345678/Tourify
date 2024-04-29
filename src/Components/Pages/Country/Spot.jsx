@@ -3,6 +3,7 @@
 
 
 import { useLoaderData, useParams } from "react-router-dom";
+import Selected from "./Selected";
 
 
 
@@ -24,9 +25,9 @@ const Spot = () => {
                 {/* {
                     countries.map(country=> <h1 key={country.spot}>{countries.name}</h1>)
                 } */}
-                {/* {
-                     countries.map(country => <Selected key={country._id} country={country}></Selected>)
-                } */}
+                {
+                     countries?.map(data =><Selected key={data._id} country={data}></Selected>)
+                }
             </div>
         </div>
     );
