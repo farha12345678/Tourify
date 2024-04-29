@@ -1,19 +1,19 @@
+import { Typewriter } from "react-simple-typewriter";
 
 
 
 const Question = () => {
     return (
         <div>
-             {/* <div>
-             <h1>Accordion Innovations</h1>
-      <Typewriter Accordion Innovations/>
-    </div> */}
-            {/* <div className="text-center my-10">
-                <h1>Accordion Innovations</h1>
-            </div> */}
-            <div className="flex justify-center">
+             <div className="text-center">
+             
+      <h1 className="text-center my-10 font-semibold text-4xl"><Typewriter words={["Accordion Innovations"]} loop={1000} cursor cursorStyle="_" typeSpeed={70}  delaySpeed={1000}/></h1>
+      
+    </div>
+            
+            <div className="lg:flex grid gap-x-10 justify-center">
                 <div className="w-1/3">
-                    <h1>hlw</h1>
+                    <h1><img  src="https://i.ibb.co/rMrXrHR/Whats-App-Image-2024-04-30-at-01-13-53-8b771924.jpg" alt="" /></h1>
                 </div>
             <div className="2/3">
             <div className="collapse collapse-plus bg-base-200 ">
