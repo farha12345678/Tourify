@@ -8,7 +8,7 @@ const CountryCard = ({country}) => {
     const {image , name , description } = country;
     return (
         <div>
-            <div className="card w-96 bg-base-100 h-full shadow-xl">
+            <div className="card w-96 lg:w-96 md:w-[550px] bg-base-100 h-full shadow-xl">
                 <figure className="px-10 h-44  pt-10">
                     <img src={image} />
                 </figure>

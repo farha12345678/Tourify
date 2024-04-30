@@ -1,3 +1,11 @@
+# Tourify
+
+# Live link:
+https://assignment-10-server-bay-six.vercel.app
+
+# Category : Southeast Asia
+
+
 # Five Bullet Points
 
 - Tailored Travel Experiences: We specialize in crafting personalized travel itineraries that cater to the unique preferences and interests of each traveler, ensuring unforgettable experiences.

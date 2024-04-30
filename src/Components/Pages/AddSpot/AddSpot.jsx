@@ -1,4 +1,5 @@
 import { useForm } from 'react-hook-form';
+import { Typewriter } from 'react-simple-typewriter';
 import Swal from 'sweetalert2'
 
 const AddSpot = () => {
@@ -82,7 +83,12 @@ const AddSpot = () => {
 
 
     return (
-        <div className="card mx-auto shrink-0 max-w-2xl my-10  shadow-2xl bg-base-100">
+        <div className="card lg:mx-auto shrink-0 md:max-w-xl lg:max-w-2xl my-10  shadow-2xl bg-base-100">
+             <div className="text-center">
+             
+             <h1 className="text-center my-10 font-semibold text-4xl"><Typewriter words={["Add Spots Here..."]} loop={1000} cursor cursorStyle="_" typeSpeed={70}  delaySpeed={1000}/></h1>
+             
+           </div>
             <form onSubmit={handleAddSpot} className="grid grid-cols-2 my-5 mx-5 gap-x-5">
                 <div className="form-control">
                     <label className="label">

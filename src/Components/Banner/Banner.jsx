@@ -40,7 +40,7 @@ const Banner = () => {
             >
                 <SwiperSlide>
                     {/* <img className='w-96 h-96 md:w-full lg:w-[1200px] lg:h-96 md:h-[250px] rounded-3xl' src="https://i.ibb.co/phQHNQD/pexels-pixabay-433942.jpg" /> */}
-                    <div className="hero w-96 h-96 md:w-full lg:w-[1200px] lg:h-96 md:h-[250px] rounded-3xl" style={{ backgroundImage: 'url(https://i.ibb.co/phQHNQD/pexels-pixabay-433942.jpg)' }}>
+                    <div className="hero w-96 h-96 md:w-[500px] lg:w-[1200px] lg:h-96 md:h-[250px] rounded-3xl" style={{ backgroundImage: 'url(https://i.ibb.co/phQHNQD/pexels-pixabay-433942.jpg)' }}>
                         <div className="hero-overlay bg-opacity-60"></div>
                         <div className="hero-content text-center text-neutral-content">
                             <div className="max-w-md">
@@ -53,7 +53,7 @@ const Banner = () => {
                     </div>
                 </SwiperSlide>
                 <SwiperSlide  >
-                <div className="hero w-96 h-96 md:w-full lg:w-[1200px] lg:h-96 md:h-[250px] rounded-3xl" style={{ backgroundImage: 'url(https://i.ibb.co/bNrjG9c/pexels-fabianwiktor-994605.jpg)' }}>
+                <div className="hero w-96 h-96 md:w-[500px] lg:w-[1200px] lg:h-96 md:h-[250px] rounded-3xl" style={{ backgroundImage: 'url(https://i.ibb.co/bNrjG9c/pexels-fabianwiktor-994605.jpg)' }}>
                         <div className="hero-overlay bg-opacity-60"></div>
                         <div className="hero-content text-center text-neutral-content">
                             <div className="max-w-md">
@@ -67,7 +67,7 @@ const Banner = () => {
                 </SwiperSlide>
                 <SwiperSlide >
                     
-                    <div className="hero w-96 h-96 md:w-full lg:w-[1200px] lg:h-96 md:h-[250px] rounded-3xl" style={{ backgroundImage: 'url(https://i.ibb.co/bNrjG9c/pexels-fabianwiktor-994605.jpg)' }}>
+                    <div className="hero w-96 h-96 md:w-[500px] lg:w-[1200px] lg:h-96 md:h-[250px] rounded-3xl" style={{ backgroundImage: 'url(https://i.ibb.co/bNrjG9c/pexels-fabianwiktor-994605.jpg)' }}>
                         <div className="hero-overlay bg-opacity-60"></div>
                         <div className="hero-content text-center text-neutral-content">
                             <div className="max-w-md">
@@ -82,7 +82,7 @@ const Banner = () => {
 
                 <SwiperSlide >
                     
-                    <div className="hero w-96 h-96 md:w-full lg:w-[1200px] lg:h-96 md:h-[250px] rounded-3xl" style={{ backgroundImage: 'url(https://i.ibb.co/jyxJrg7/pexels-kirandeepsingh-18244220.jpg)' }}>
+                    <div className="hero w-96 h-96 md:w-[500px] lg:w-[1200px] lg:h-96 md:h-[250px] rounded-3xl" style={{ backgroundImage: 'url(https://i.ibb.co/jyxJrg7/pexels-kirandeepsingh-18244220.jpg)' }}>
                         <div className="hero-overlay bg-opacity-60"></div>
                         <div className="hero-content text-center text-neutral-content">
                             <div className="max-w-md">
@@ -96,7 +96,7 @@ const Banner = () => {
                 </SwiperSlide>
                 <SwiperSlide >
                     
-                    <div className="hero w-96 h-96 md:w-full lg:w-[1200px] lg:h-96 md:h-[250px] rounded-3xl" style={{ backgroundImage: 'url(https://i.ibb.co/6DGqH4x/hossain-azad-PZ0-MSDlng9w-unsplash.jpg)' }}>
+                    <div className="hero w-96 h-96 md:w-[500px] lg:w-[1200px] lg:h-96 md:h-[250px] rounded-3xl" style={{ backgroundImage: 'url(https://i.ibb.co/6DGqH4x/hossain-azad-PZ0-MSDlng9w-unsplash.jpg)' }}>
                         <div className="hero-overlay bg-opacity-60"></div>
                         <div className="hero-content text-center text-neutral-content">
                             <div className="max-w-md">
@@ -110,7 +110,7 @@ const Banner = () => {
                 </SwiperSlide>
                 <SwiperSlide >
                     
-                    <div className="hero w-96 h-96 md:w-full lg:w-[1200px] lg:h-96 md:h-[250px] rounded-3xl" style={{ backgroundImage: 'url(https://i.ibb.co/cJB0jjq/tron-le-w-Uk2-U5-Wirxg-unsplash.jpg)' }}>
+                    <div className="hero w-96 h-96 md:w-[500px] lg:w-[1200px] lg:h-96 md:h-[250px] rounded-3xl" style={{ backgroundImage: 'url(https://i.ibb.co/cJB0jjq/tron-le-w-Uk2-U5-Wirxg-unsplash.jpg)' }}>
                         <div className="hero-overlay bg-opacity-60"></div>
                         <div className="hero-content text-center text-neutral-content">
                             <div className="max-w-md">

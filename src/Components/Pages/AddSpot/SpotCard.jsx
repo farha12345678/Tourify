@@ -8,7 +8,7 @@ const SpotCard = ({ spots }) => {
 
     return (
         <div>
-            <div className="card flex-col lg:flex-row card-side h-auto lg:w-[500px] w-80 bg-base-100 shadow-xl">
+            <div className="card flex-col lg:flex-row card-side h-auto md:w-[550px] lg:w-[500px] w-80 bg-base-100 shadow-xl">
             <img src={photo} className="lg:max-w-xs md:w-96 w-60 rounded-lg shadow-2xl" />
                 <div className="card-body bg-blue-50">
                     <h2 className="card-title font-medium text-blue-500">{spot}</h2>
