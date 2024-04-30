@@ -8,8 +8,8 @@ const DiscountSec = () => {
                 <h1 className="text-3xl font-bold">Offers</h1>
                 <p>Here is our exciting offers for you..</p>
             </div>
-            <div className="lg:flex grid justify-center gap-x-5">
-                <div className="bg-orange-400 w-96 h-52 border rounded-xl">
+            <div className="lg:flex grid justify-center gap-y-4 lg:gap-x-5">
+                <div className="bg-orange-400 lg:w-96 w-80 h-52 border rounded-xl">
                     <div className="text-4xl font-semibold text-white ml-5 my-10">
                     <div className="flex gap-x-5">
                     <h1>20% <br /> <span className="font-extrabold">off</span></h1>
@@ -19,7 +19,7 @@ const DiscountSec = () => {
                     </div>
                     
                 </div>
-                <div className="bg-orange-200 w-96 h-52 border rounded-xl">
+                <div className="bg-orange-200 lg:w-96 w-80 h-52 border rounded-xl">
                 <div className="text-4xl font-semibold text-orange-500 ml-5 my-10">
                 <div className="flex gap-x-5">
                     <h1>10% <br /> <span className="font-extrabold">off</span></h1>
@@ -31,7 +31,7 @@ const DiscountSec = () => {
                 </div>
             </div>
             <div className="flex justify-center lg:my-10">
-            <div className="bg-orange-800 w-96 h-52 border rounded-xl">
+            <div className="bg-orange-800 lg:w-96 w-80 h-52 mt-2 border rounded-xl">
                 <div className="text-4xl font-semibold text-white ml-5 my-10">
                 <div className="flex gap-x-5">
                     <h1>30% <br /> <span className="font-extrabold">off</span></h1>

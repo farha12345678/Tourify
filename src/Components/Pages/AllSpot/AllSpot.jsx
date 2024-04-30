@@ -1,52 +1,42 @@
-import { useState } from "react";
+
 import { useLoaderData } from "react-router-dom";
 import AllSpotCard from "./AllSpotCard";
 import { FaAngleDown } from "react-icons/fa";
+import { useState } from "react";
 
 
 const AllSpot = () => {
     const spotLoad = useLoaderData()
-//     const { avgCost } = 
-// const cost = parseInt(avgCost)
+     const { cost } = spotLoad;
+    const costs = parseInt(cost)
+    console.log(spotLoad);
 
-   const [sort, setSort] = useState('ascending')
+    const [sort , setSort] = useState("ascending");
 
-   const parseCost = (cost) => {
-    if(cost === "Free" || cost === "free" || cost === "FREE"){
-      return 0;
-      
-    }
-    else{
-      return parseFloat(cost.replace(/[^0-9.-]+/g,""))
-    }
-   }
-
-    const handleSort = () => {
-        if (sort === "asc") {
-            spotLoad.sort(
-                (a, b) => parseCost(a.average_cost) - parseCost(b.average_cost)
-            );
-            setSort("desc")
-        } else {
-            spotLoad.sort(
-                (a, b) => parseCost(b.average_cost) - parseCost(a.average_cost)
-            ); setSort("asc")
+    const parseCost = (costs) => {
+        if(costs ==="Free" || costs === "free" || costs === "FREE"){
+            return 0;
+        }
+        else{
+            return parseFloat (costs.replace(/[^0-9.-]+/g,""))
         }
     }
-    // const handleSortChange = (e) => {
-    //     setSort(e.target.value);
-    // };
-    // const handleSort = () => {
-    //     const sortedSpotLoad = [...spotLoad].sort((a, b) => {
-    //         const costA = parseCost(a.average_cost);
-    //         const costB = parseCost(b.average_cost);
-    //         return sort === 'asc' ? costA - costB : costB - costA;
-    //     });
-    //     setSort(sort === 'asc' ? 'desc' : 'asc');
 
-    //     setSort(sortedSpotLoad);
-    // };
+    const handleSortBy = () => {
+        if(sort === "ascending"){
+            spotLoad.sort (
+                (a,b) => parseCost(a.cost) - parseCost(b.cost)
+            )
+            setSort("descending")
 
+        } 
+        else {
+            spotLoad.sort (
+                (a,b) => parseCost(b.cost) - parseCost(a.cost)
+            )
+            setSort("ascending")
+        }
+    }
 
 
 
@@ -64,14 +54,14 @@ const AllSpot = () => {
                     <ul tabIndex={0}
                         className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
                     >
-                        <li onClick={() => handleSort({ cost })}>
+                        <li onClick={() => handleSortBy({ costs })}>
                             <a>Average Cost</a>
 
                         </li>
 
                     </ul>
-                </div> 
-               
+                </div>
+
             </div>
             <div className="grid lg:grid-cols-2 grid-cols-1 gap-y-4 mx-5">
                 {

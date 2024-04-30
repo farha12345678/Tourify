@@ -20,7 +20,7 @@ const AddSpot = () => {
         const addSpot = { photo, spot, country, location, description, cost, season, time, visitor, email, name }
         console.log(addSpot);
         // send data to the server
-        fetch('http://localhost:5000/add', {
+        fetch('https://assignment-10-server-bay-six.vercel.app/add', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

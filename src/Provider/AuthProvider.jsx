@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { GoogleAuthProvider } from "firebase/auth";
 import { GithubAuthProvider } from "firebase/auth";
 import { FacebookAuthProvider } from "firebase/auth";
-import app from "../Firebase.config";
+import app from "../Firebase/Firebase.config";
 
 
 

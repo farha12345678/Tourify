@@ -10,10 +10,11 @@ const AddSpotSection = () => {
     return (
         <div>
              <div className="text-center my-10">
-                <h1 className="font-semibold text-4xl">Tourists Spots</h1>
+                <h1 className="font-bold text-4xl">Tourists Spots</h1>
+                <p className="mt-2 font-medium text-blue-600">Explore the most beautiful scenery to enjoy your life...</p>
                 
             </div> 
-            <div className="grid  lg:grid-cols-2 grid-cols-1 gap-y-5 mx-8">
+            <div className="grid  lg:grid-cols-2 grid-cols-1 gap-y-5  lg:mx-8">
                 {
                     spotLoad.slice(0,6).map(spots => <SpotCard key={spots._id} spots={spots}></SpotCard>)
                 }

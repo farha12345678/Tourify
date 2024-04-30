@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
+import { Tooltip } from "react-tooltip";
 
 
 
@@ -53,7 +54,7 @@ const Navbar = () => {
             </ul>
           </div>
           <div className="flex">
-            <img className="text-sm w-12" src="/public/earth.png" alt="" />
+            <img className="text-sm w-12" src="/earth.png" alt="" />
             <a className="text-4xl font-extrabold">Tourify</a>
           </div>
 
@@ -74,10 +75,15 @@ const Navbar = () => {
 
               <div className="dropdown">
                 <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-                  <div className="tooltip" data-tip={user.displayName}>
-                    <img className="tooltip h-10 w-10 rounded-full" data-tip={user.displayName} src={user.photoURL} alt="" />
+                  <div data-tooltip-id="my-tooltip" >
+                    <img data-tooltip-id="my-tooltip" data-tooltip-place="bottom" data-tooltip-content={user.displayName} className=" h-10 w-10 rounded-full"  src={user.photoURL} alt="" />
                   </div>
                 </div>
+                {/* <a data-tooltip-id="my-tooltip" data-tooltip-content="Hello world!">
+                  
+                </a> */}
+                
+                <Tooltip id="my-tooltip" />
                 <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[2] p-2 shadow bg-base-100 rounded-box w-20 md:w-20">
                   <div className="tooltip" data-tip={user.displayName}>
                     <img className="tooltip h-10 w-10 rounded-full" data-tip={user.displayName} src={user.photoURL} alt="" />
@@ -89,9 +95,11 @@ const Navbar = () => {
               </div>
               <div className=" hidden md:hidden lg:flex">
                 <ul className="menu menu-horizontal ">
-                  <div className="tooltip" data-tip={user.displayName}>
-                    <img className="tooltip h-10 w-10 mr-2  rounded-full" data-tip={user.displayName} src={user.photoURL} alt="" />
+                <div data-tooltip-id="my-tooltip" >
+                    <img data-tooltip-id="my-tooltip" data-tooltip-place="bottom" data-tooltip-content={user.displayName} className=" h-10 w-10 rounded-full"  src={user.photoURL} alt="" />
                   </div>
+                  <Tooltip id="my-tooltip" />
+               
                   <Link><li onClick={logOut} className="font-bold text-xl text-blue-500">Log Out</li></Link>
 
                 </ul>

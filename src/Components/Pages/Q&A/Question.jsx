@@ -11,12 +11,12 @@ const Question = () => {
       
     </div>
             
-           <div className="flex justify-center">
-           <div className="lg:flex grid gap-x-10 justify-center">
+           <div className="lg:flex grid lg:justify-center">
+           <div className="lg:flex grid lg:gap-x-10 justify-center">
                 <div>
-                    <h1><img className=""  src="https://i.ibb.co/rMrXrHR/Whats-App-Image-2024-04-30-at-01-13-53-8b771924.jpg" alt="" /></h1>
+                    <img className="w-96 mx-16 lg:mx-0 lg:w-auto"  src="https://i.ibb.co/rMrXrHR/Whats-App-Image-2024-04-30-at-01-13-53-8b771924.jpg" alt="" />
                 </div>
-            <div className="w-[600px]">
+            <div className="lg:w-[600px] w-96">
             <div className="collapse collapse-plus bg-base-200 ">
                 <input type="radio" name="my-accordion-3" defaultChecked />
                 <div className="collapse-title text-xl font-medium">
