@@ -1,32 +1,36 @@
 import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import AllSpotCard from "./AllSpotCard";
+import { FaAngleDown } from "react-icons/fa";
 
 
 const AllSpot = () => {
     const spotLoad = useLoaderData()
+//     const { avgCost } = 
+// const cost = parseInt(avgCost)
 
+   const [sort, setSort] = useState('ascending')
 
-    const [sort, setSort] = useState();
-    const parseCost = (cost) => {
-        if (cost === "Free" || cost === "free") {
-            return 0;
-        } else {
-            return parseFloat(cost.replace(/[^0-9.-]+/g, ""))
-        }
-
+   const parseCost = (cost) => {
+    if(cost === "Free" || cost === "free" || cost === "FREE"){
+      return 0;
+      
     }
+    else{
+      return parseFloat(cost.replace(/[^0-9.-]+/g,""))
+    }
+   }
 
     const handleSort = () => {
-        if(sort === "asc"){
+        if (sort === "asc") {
             spotLoad.sort(
-                (a,b)=>parseCost(a.average_cost) - parseCost(b.average_cost)
+                (a, b) => parseCost(a.average_cost) - parseCost(b.average_cost)
             );
             setSort("desc")
-        }else{
+        } else {
             spotLoad.sort(
-                (a,b)=>parseCost(b.average_cost) - parseCost(a.average_cost)
-            );setSort("asc")
+                (a, b) => parseCost(b.average_cost) - parseCost(a.average_cost)
+            ); setSort("asc")
         }
     }
     // const handleSortChange = (e) => {
@@ -49,16 +53,25 @@ const AllSpot = () => {
 
     return (
         <div>
-            <div className="text-center my-10">
-                <h1 className="font-semibold text-4xl">All Tourists Spots</h1>
-                <div className="text-center">
-                    <select onChange={handleSort}>
-                        <option value="asc">Ascending</option>
-                        <option value="desc">Descending</option>
-                    </select>
-                    {/* <button onClick={handleSort}>Sort</button> */}
-                </div>
+            <div className="flex justify-center">
+                <div className="dropdown">
+                    <div tabIndex={0}
+                        role="button"
+                        className="btn m-1 mt-6 flex items-center gap-3"
+                    >Sort By <FaAngleDown></FaAngleDown>
 
+                    </div>
+                    <ul tabIndex={0}
+                        className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
+                    >
+                        <li onClick={() => handleSort({ cost })}>
+                            <a>Average Cost</a>
+
+                        </li>
+
+                    </ul>
+                </div> 
+               
             </div>
             <div className="grid lg:grid-cols-2 grid-cols-1 gap-y-4 mx-5">
                 {
