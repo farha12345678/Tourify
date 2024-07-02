@@ -21,7 +21,7 @@ const ListCard = ({ list, onDelete }) => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`https://assignment-10-server-bay-six.vercel.app/add/${_id}`, {
+                fetch(`http://localhost:5000/add/${_id}`, {
                     method: 'DELETE',
 
                 })

@@ -1,4 +1,4 @@
-import { useForm } from 'react-hook-form';
+
 import { Typewriter } from 'react-simple-typewriter';
 import Swal from 'sweetalert2'
 
@@ -21,7 +21,7 @@ const AddSpot = () => {
         const addSpot = { photo, spot, country, location, description, cost, season, time, visitor, email, name }
         console.log(addSpot);
         // send data to the server
-        fetch('https://assignment-10-server-bay-six.vercel.app/add', {
+        fetch('http://localhost:5000/add', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -78,17 +78,16 @@ const AddSpot = () => {
     //     }
 
     // }
-    const {register} = useForm()
 
 
 
     return (
         <div className="card lg:mx-auto shrink-0 md:max-w-xl lg:max-w-2xl my-10  shadow-2xl bg-base-100">
-             <div className="text-center">
-             
-             <h1 className="text-center my-10 font-semibold text-4xl"><Typewriter words={["Add Spots Here..."]} loop={1000} cursor cursorStyle="_" typeSpeed={70}  delaySpeed={1000}/></h1>
-             
-           </div>
+            <div className="text-center">
+
+                <h1 className="text-center my-10 font-semibold text-4xl"><Typewriter words={["Add Spots Here..."]} loop={1000} cursor cursorStyle="_" typeSpeed={70} delaySpeed={1000} /></h1>
+
+            </div>
             <form onSubmit={handleAddSpot} className="grid grid-cols-2 my-5 mx-5 gap-x-5">
                 <div className="form-control">
                     <label className="label">
@@ -122,20 +121,11 @@ const AddSpot = () => {
                 
 
             </div> */}
-            <div className="form-control">
+                <div className="form-control">
                     <label className="label">
                         <span className="label-text text-lg font-medium">Country Name</span>
                     </label>
-                    <select className="input input-bordered w-full"  {...register("category", { required: true })}>
-                    <option value="">Select...</option>
-                    <option value="Bangladesh">Bangladesh</option>
-                    <option value="Thailand">Thailand</option>
-                    <option value="Malaysia">Malaysia</option>
-                    <option value="Indonesia">Indonesia</option>
-                    <option value="Vietnam">Vietnam</option>
-                    <option value="Cambodia">Cambodia</option>
-                    
-                </select>
+                    <input type="text" name="country" placeholder="Country" className="input input-bordered" required />
                 </div>
                 <div className="form-control">
                     <label className="label">

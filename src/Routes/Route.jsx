@@ -21,18 +21,18 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
-     errorElement:<ErrorPage></ErrorPage>,
+      errorElement:<ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
         element: <Home></Home>,
-         loader: ()=> fetch('https://assignment-10-server-bay-six.vercel.app/add') ,
+         loader: ()=> fetch('http://localhost:5000/add') ,
         
       },
       {
         path: '/all',
         element: <PrivateRoute><AllSpot></AllSpot></PrivateRoute>,
-        loader: ()=> fetch('https://assignment-10-server-bay-six.vercel.app/add') 
+        loader: ()=> fetch('http://localhost:5000/add') 
       },
       {
         path: '/add',
@@ -54,12 +54,12 @@ const router = createBrowserRouter([
       {
         path: '/view/:id',
         element: <PrivateRoute><ViewDetails></ViewDetails></PrivateRoute>,
-         loader: ()=> fetch('https://assignment-10-server-bay-six.vercel.app/add') 
+         loader: ()=> fetch('http://localhost:5000/add') 
       },
       {
         path: '/update/:id',
         element:<Update></Update>,
-        loader:({params}) => fetch(`https://assignment-10-server-bay-six.vercel.app/add/${params.id}`)
+        loader:({params}) => fetch(`http://localhost:5000/add/${params.id}`)
         
       },
       {
@@ -69,7 +69,7 @@ const router = createBrowserRouter([
       {
         path: '/:name',
         element:<Spot></Spot>,
-        loader: ()=> fetch(`https://assignment-10-server-bay-six.vercel.app/add`) 
+        loader: ()=> fetch(`http://localhost:5000/add`) 
       } 
   ]
    

@@ -96,11 +96,11 @@ const Navbar = () => {
               <div className=" hidden md:hidden lg:flex">
                 <ul className="menu menu-horizontal ">
                 <div data-tooltip-id="my-tooltip" >
-                    <img data-tooltip-id="my-tooltip" data-tooltip-place="bottom" data-tooltip-content={user.displayName} className=" h-10 w-10 rounded-full"  src={user.photoURL} alt="" />
+                    <img data-tooltip-id="my-tooltip" data-tooltip-place="bottom" data-tooltip-content={user.displayName} className="mr-2 h-10 w-10 rounded-full"  src={user.photoURL} alt="" />
                   </div>
                   <Tooltip id="my-tooltip" />
                
-                  <Link><li onClick={logOut} className="font-bold  text-xl text-blue-500">Log Out</li></Link>
+                  <Link><li onClick={logOut} className="font-bold ml-2  text-xl text-blue-500">Log Out</li></Link>
 
                 </ul>
               </div>

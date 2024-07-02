@@ -28,7 +28,7 @@ const Update = () => {
         const addUpdate = { photo, spot, country, location, description, cost, season, time, visitor, email, name }
         console.log(addUpdate);
         // send data to the server
-        fetch(`https://assignment-10-server-bay-six.vercel.app/add/${_id}`, {
+        fetch(`http://localhost:5000/add/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

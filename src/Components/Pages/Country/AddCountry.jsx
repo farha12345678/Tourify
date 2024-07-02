@@ -6,7 +6,7 @@ const AddCountry = () => {
    
     const [countries , setCountry] = useState([])
     useEffect(() => {
-        fetch('https://assignment-10-server-bay-six.vercel.app/countries')
+        fetch('http://localhost:5000/countries')
         .then(res=>res.json())
         .then(data => {
             

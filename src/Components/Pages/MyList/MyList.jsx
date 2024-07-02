@@ -16,7 +16,7 @@ const MyList = () => {
     };
     console.log(user);
     useEffect(() => {
-        fetch(`https://assignment-10-server-bay-six.vercel.app/myList/${user?.email}`)
+        fetch(`http://localhost:5000/myList/${user?.email}`)
         .then(res=> res.json())
         .then(data=> {
             setItem(data);
