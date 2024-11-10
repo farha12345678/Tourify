@@ -11,7 +11,7 @@ import ViewDetails from "../Components/Pages/AddSpot/ViewDetails";
 
 import AllSpot from "../Components/Pages/AllSpot/AllSpot";
 import AddCountry from "../Components/Pages/Country/AddCountry";
-import ErrorPage from "../Components/Pages/ErrorPage";
+
 import Spot from "../Components/Pages/Country/Spot";
 import Update from "../Components/Pages/Update/Update";
 
@@ -21,23 +21,22 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
-      errorElement:<ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
         element: <Home></Home>,
-         loader: ()=> fetch('http://localhost:5000/add') ,
+         loader: ()=> fetch('https://assignment-10-server-bay-six.vercel.app/add') ,
         
       },
       {
         path: '/all',
         element: <PrivateRoute><AllSpot></AllSpot></PrivateRoute>,
-        loader: ()=> fetch('http://localhost:5000/add') 
+        loader: ()=> fetch('https://assignment-10-server-bay-six.vercel.app/add') 
       },
       {
         path: '/add',
         element: <PrivateRoute><AddSpot></AddSpot></PrivateRoute>,
-        // loader: ()=> fetch('http://localhost:5000/add') 
+        // loader: ()=> fetch('https://assignment-10-server-bay-six.vercel.app/add') 
       },
       {
         path: '/my',
@@ -54,12 +53,12 @@ const router = createBrowserRouter([
       {
         path: '/view/:id',
         element: <PrivateRoute><ViewDetails></ViewDetails></PrivateRoute>,
-         loader: ()=> fetch('http://localhost:5000/add') 
+         loader: ()=> fetch('https://assignment-10-server-bay-six.vercel.app/add') 
       },
       {
         path: '/update/:id',
         element:<Update></Update>,
-        loader:({params}) => fetch(`http://localhost:5000/add/${params.id}`)
+        loader:({params}) => fetch(`https://assignment-10-server-bay-six.vercel.app/add/${params.id}`)
         
       },
       {
@@ -69,7 +68,7 @@ const router = createBrowserRouter([
       {
         path: '/:name',
         element:<Spot></Spot>,
-        loader: ()=> fetch(`http://localhost:5000/add`) 
+        loader: ()=> fetch(`https://assignment-10-server-bay-six.vercel.app/add`) 
       } 
   ]
    

@@ -1,120 +1,134 @@
 import { useContext, useEffect, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { Tooltip } from "react-tooltip";
 
-
-
 const Navbar = () => {
-  const { user, logOut } = useContext(AuthContext)
-  const [theme, setTheme] = useState('light')
+  const { user, logOut } = useContext(AuthContext);
+  const [theme, setTheme] = useState("light");
+  const [isOpen, setIsOpen] = useState(false); // state to handle mobile menu open/close
 
   useEffect(() => {
-    localStorage.setItem('theme', theme)
-    const localTheme = localStorage.getItem('theme')
-    document.querySelector('html').setAttribute('data-theme', localTheme)
+    const localTheme = localStorage.getItem("theme");
+    if (localTheme) {
+      setTheme(localTheme);
+      document.querySelector("html").setAttribute("data-theme", localTheme);
+    }
+  }, []);
 
-
-  }, [theme])
+  useEffect(() => {
+    localStorage.setItem("theme", theme);
+    document.querySelector("html").setAttribute("data-theme", theme);
+  }, [theme]);
 
   const handleToggle = (e) => {
-    if (e.target.checked) {
-      setTheme('dark')
-    } else {
-      setTheme('light')
+    setTheme(e.target.checked ? "dark" : "light");
+  };
+
+  const handleLogOut = async () => {
+    try {
+      await logOut();
+    } catch (error) {
+      console.error("Error logging out:", error);
     }
-  }
+  };
 
-
-
-  const links = <>
-    <NavLink className={({ isActive }) => isActive ? 'border-x-2 text-blue-500 text-xl ' : 'text-xl border-x-2 '} to='/'><li>Home</li></NavLink>
-    <NavLink className={({ isActive }) => isActive ? 'border-x-2  text-blue-500  text-xl ' : 'text-xl border-x-2 '} to='/all'><li>All Tourists Spot</li></NavLink>
-    <NavLink className={({ isActive }) => isActive ? 'text-blue-500 text-xl border-x-2' : 'text-xl  border-x-2 '} to='/add'><li>Add Tourists Spot</li></NavLink>
-    <NavLink className={({ isActive }) => isActive ? 'text-blue-500 text-xl border-x-2 ' : 'text-xl  border-x-2 '} to='/my'><li>My List</li></NavLink>
-    <NavLink><li></li></NavLink>
-
-
-
-  </>
-
-
-
+  const links = (
+    <>
+      <NavLink className={({ isActive }) => (isActive ? "text-blue-500 text-lg font-bold" : "text-lg")} to="/">
+        <li>Home</li>
+      </NavLink>
+      <NavLink className={({ isActive }) => (isActive ? "text-blue-500 text-lg font-bold" : "text-lg")} to="/all">
+        <li>All Tourist Spots</li>
+      </NavLink>
+      <NavLink className={({ isActive }) => (isActive ? "text-blue-500 text-lg font-bold" : "text-lg")} to="/add">
+        <li>Add Tourist Spot</li>
+      </NavLink>
+      <NavLink className={({ isActive }) => (isActive ? "text-blue-500 text-lg font-bold" : "text-lg")} to="/my">
+        <li>My List</li>
+      </NavLink>
+      {!user && (
+        <>
+          <NavLink className={({ isActive }) => (isActive ? "text-blue-500 text-lg font-bold" : "text-lg")} to="/login">
+            <li>Log In</li>
+          </NavLink>
+          <NavLink className={({ isActive }) => (isActive ? "text-blue-500 text-lg font-bold" : "text-lg")} to="/register">
+            <li>Register</li>
+          </NavLink>
+        </>
+      )}
+    </>
+  );
 
   return (
-    <div>
-      <div className="navbar bg-blue-100">
-        <div className="navbar-start">
-          <div className="dropdown">
-            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
-            </div>
-            <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[2] p-2 shadow bg-base-100 rounded-box w-52">
-              {links}
-            </ul>
-          </div>
-          <div className="flex">
-            <img className="text-sm w-12" src="/earth.png" alt="" />
-            <a className="text-4xl font-extrabold">Tourify</a>
+    <div className="w-full bg-blue-100">
+      <div className="navbar container mx-auto px-4 py-2 flex justify-between items-center">
+        {/* Logo and Mobile Menu Toggle */}
+        <div className="flex items-center">
+          {/* Mobile Menu Toggle */}
+          <div className="lg:hidden">
+            <button onClick={() => setIsOpen(!isOpen)} className="btn btn-ghost">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
+              </svg>
+            </button>
           </div>
 
-          <div className="navbar hidden lg:flex mt-2 ml-10">
-            <ul className="menu menu-horizontal font-normal gap-x-2">
-              {links}
-            </ul>
+          {/* Logo */}
+          <div className="flex items-center lg:ml-2 mr-4">
+            <img className="w-10" src="/earth.png" alt="Tourify logo" />
+            <span className="text-3xl font-extrabold lg:ml-2">Tourify</span>
           </div>
         </div>
-        <div className="navbar-end">
-          <label className="cursor-pointer grid lg:place-items-center">
-            <input onChange={handleToggle} type="checkbox" className="toggle theme-controller bg-base-content row-start-1 col-start-1 col-span-2" />
-            <svg className="col-start-1 row-start-1 stroke-base-100 fill-base-100" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="5" /><path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4" /></svg>
-            <svg className="col-start-2 row-start-1 stroke-base-100 fill-base-100" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+
+        {/* Desktop Links */}
+        <div className="hidden lg:flex">
+          <ul className="menu menu-horizontal gap-x-10">{links}</ul>
+        </div>
+
+        {/* Theme Toggle and User Profile */}
+        <div className="flex items-center gap-4">
+          {/* Theme Toggle */}
+          <label className="cursor-pointer flex ml-8 items-center">
+            <input type="checkbox" className="toggle" onChange={handleToggle} checked={theme === "dark"} />
           </label>
-          {
-            user ? <>
 
-              <div className="dropdown">
-                <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-                  <div data-tooltip-id="my-tooltip" >
-                    <img data-tooltip-id="my-tooltip" data-tooltip-place="bottom" data-tooltip-content={user.displayName} className=" h-10 w-10 rounded-full"  src={user.photoURL} alt="" />
-                  </div>
-                </div>
-                {/* <a data-tooltip-id="my-tooltip" data-tooltip-content="Hello world!">
-                  
-                </a> */}
-                
-                <Tooltip id="my-tooltip" />
-                <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[2] p-2 shadow bg-base-100 rounded-box w-20 md:w-20">
-                  <div className="tooltip" data-tip={user.displayName}>
-                    <img className="tooltip h-10 w-10 rounded-full" data-tip={user.displayName} src={user.photoURL} alt="" />
-                  </div>
-
-
-                  <button onClick={logOut}>Log Out</button>
-                </ul>
-              </div>
-              <div className=" hidden md:hidden lg:flex">
-                <ul className="menu menu-horizontal ">
-                <div data-tooltip-id="my-tooltip" >
-                    <img data-tooltip-id="my-tooltip" data-tooltip-place="bottom" data-tooltip-content={user.displayName} className="mr-2 h-10 w-10 rounded-full"  src={user.photoURL} alt="" />
-                  </div>
-                  <Tooltip id="my-tooltip" />
-               
-                  <Link><li onClick={logOut} className="font-bold ml-2  text-xl text-blue-500">Log Out</li></Link>
-
-                </ul>
-              </div>
-
-
-
-            </>
-              : <>
-                <Link to='/login'><button className="font-bold text-xl ml-4 text-blue-500">Log In</button></Link>
-                <Link to='/register'><button className="font-bold  text-xl ml-4 text-blue-500">Register</button></Link>
-              </>
-          }
+          {/* User Profile */}
+          {user ? (
+            <div className="flex items-center gap-3">
+              <img
+                data-tooltip-id="profile-tooltip"
+                data-tooltip-content={user.displayName}
+                className="h-8 w-8 lg:h-10 lg:w-10 rounded-full" // Adjust size for mobile and desktop
+                src={user.photoURL}
+                alt={user.displayName}
+              />
+              <Tooltip id="profile-tooltip" place="bottom" />
+              
+              {/* Log Out Button - Visible Only on Desktop */}
+              <button onClick={handleLogOut} className="bg-blue-500 text-white py-1 px-4 rounded-xl hidden lg:block">
+                Log Out
+              </button>
+            </div>
+          ) : null}
         </div>
       </div>
+
+      {/* Mobile Dropdown Menu */}
+      {isOpen && (
+        <div className="lg:hidden w-full bg-white shadow-md">
+          <ul className="flex flex-col p-4 space-y-2">
+            {links}
+            {user && (
+              <li>
+                <button onClick={handleLogOut} className="bg-red-500 text-white py-1 px-4 rounded">
+                  Log Out
+                </button>
+              </li>
+            )}
+          </ul>
+        </div>
+      )}
     </div>
   );
 };

@@ -6,7 +6,7 @@ import { GoogleAuthProvider } from "firebase/auth";
 import { GithubAuthProvider } from "firebase/auth";
 import { FacebookAuthProvider } from "firebase/auth";
 import app from "../Firebase/Firebase.config";
-import axios from "axios";
+
 
 
 
@@ -77,13 +77,7 @@ const AuthProvider = ({ children }) => {
             console.log(currentUser)
             setLoader(false)
             setUser(currentUser)
-            if(currentUser){
-                const loggedUser = {email:currentUser.email}
-                axios.post('http://localhost:5000/jwt', loggedUser ,{withCredentials: true})
-                .then(res => {
-                    console.log('token response',res.data);
-                })
-            }
+           
         })
         return () => { unsubscribe() };
     }, [])

@@ -1,33 +1,43 @@
+import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
-import PropTypes from 'prop-types';
+const AllSpotCard = ({ spots }) => {
+  const { _id, spot, photo, description } = spots;
 
-import { Link } from 'react-router-dom';
-
-
-const AllSpotCard = ({spots}) => {
-    const { _id, spot, photo, description } = spots;
-    return (
-        <div>
-            <div className="card card-side lg:w-[650px] w-96 bg-base-100 shadow-xl">
-                <figure><img className="h-64 rounded-2xl w-96" src={photo} alt="Movie" /></figure>
-                <div className="card-body bg-blue-50">
-                    <h2 className="card-title font-medium text-blue-500">{spot}</h2>
-                    <p>{description.split(' ').slice(0, 10).join(' ')}...</p>
-
-                    <div className="card-actions  justify-end">
-
-                        <Link to={`/view/${_id}`}><button className='btn'>View Details</button> </Link>
-
-                    </div>
-                </div>
-            </div>
-           
+  return (
+    <div className="hover:scale-105 transition-transform duration-300 w-96 mx-auto">
+      <div className="card bg-base-100 shadow-lg rounded-xl overflow-hidden w-full h-80 flex flex-col">
+        <figure className="h-40 w-full overflow-hidden">
+          <img
+            className="object-cover w-full h-full"
+            src={photo}
+            alt={spot}
+          />
+        </figure>
+        <div className="card-body bg-blue-50 flex flex-col justify-between p-4">
+          <div>
+            <h2 className="card-title font-semibold text-blue-500 text-lg mb-2">
+              {spot}
+            </h2>
+            <p className="text-gray-700 text-sm mb-4">
+              {description.split(" ").slice(0, 10).join(" ")}...
+            </p>
+          </div>
+          <div className="card-actions justify-end">
+            <Link to={`/view/${_id}`}>
+              <button className="btn bg-blue-500 text-white hover:bg-blue-600">
+                View Details
+              </button>
+            </Link>
+          </div>
         </div>
-    );
+      </div>
+    </div>
+  );
 };
-AllSpotCard.propTypes = {
-    spots: PropTypes.object
-}
 
+AllSpotCard.propTypes = {
+  spots: PropTypes.object.isRequired,
+};
 
 export default AllSpotCard;
